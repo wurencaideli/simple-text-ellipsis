@@ -1,0 +1,134 @@
+<!DOCTYPE >
+<html>
+    <head>
+        <title>simple-text-ellipsis demo</title>
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"
+        />
+        <link rel="stylesheet" href="./dist/simple-text-ellipsis.css" />
+        <script src="./dist/simple-text-ellipsis.umd.js"></script>
+        <style>
+            body {
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+            }
+            .simple-text-ellipsis-demo {
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .simple-text-ellipsis-demo > .container {
+                height: auto;
+                width: fit-content;
+                padding: 8px;
+                box-sizing: border-box;
+                background-color: rgb(255, 255, 255);
+                border-radius: 5px;
+                width: 100%;
+                box-shadow: 2px 2px 4px #000;
+                margin-top: 20px;
+            }
+            .simple-text-ellipsis-demo > .container > .demo-1 {
+                font-size: 12px;
+                line-height: 22px;
+                word-break: break-all;
+            }
+        </style>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                const { SimpleTextEllipsis } = window['simple-text-ellipsis'];
+                const ddInstanceList = [];
+                const el = document.getElementById('demo-1');
+                const ddInstance = new SimpleTextEllipsis({
+                    targetEl: el,
+                    isOpen: false,
+                    maxLines: 2,
+                    expandElText: '展开',
+                    collapseElText: '收起',
+                });
+                ddInstanceList.push(ddInstance);
+                window.ddInstance = ddInstance;
+                /**
+                 * 定时更新样式
+                 */
+                function updateDdInstance() {
+                    setTimeout(() => {
+                        ddInstanceList.forEach((item) => {
+                            item.update();
+                        });
+                        updateDdInstance();
+                    }, 700);
+                }
+                updateDdInstance();
+            });
+            window.addEventListener('DOMContentLoaded', function () {
+                const { SimpleTextEllipsis } = window['simple-text-ellipsis'];
+                const ddInstanceList = [];
+                const el = document.getElementById('demo-2');
+                const ddInstance = new SimpleTextEllipsis({
+                    targetEl: el,
+                    isOpen: true,
+                    maxLines: 1,
+                    expandElText: '展开',
+                    collapseElText: '收起',
+                });
+                ddInstanceList.push(ddInstance);
+                window.ddInstance = ddInstance;
+                function ownText(el) {
+                    return Array.from(el.childNodes)
+                        .filter((n) => n.nodeType === 3) // Text 节点
+                        .map((n) => n.textContent)
+                        .join('');
+                }
+                /**
+                 * 定时更新样式
+                 */
+                function updateDdInstance() {
+                    setTimeout(() => {
+                        ddInstanceList.forEach((item) => {
+                            const contentEl = item.targetEl.querySelector('#demo-1-1');
+                            contentEl.innerText = contentEl.innerText + new Date().getTime();
+                            item.update();
+                        });
+                        updateDdInstance();
+                    }, 3000);
+                }
+                updateDdInstance();
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="simple-text-ellipsis-demo">
+            <a
+                href="https://github.com/wurencaideli/simple-text-ellipsis"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Github</a
+            >
+            <p>支持手动修改内容，修改最大行数，自适应的宽度</p>
+            <p>
+                此方案：采用css设置文本省略，采用js判断文本是否省略（以此设置展开按钮），判断文本行数是否超出限制（以此设置收缩按钮），js计算需要获取行高，请用css设置line-height属性。
+            </p>
+            <div class="container" style="width: 300px">
+                <div class="demo-1" id="demo-1">
+                    <span id="demo-1-1">
+                        其实上面的努力已经实现了右下角环绕的效果，如果在知道行数的情况下设置一个最大高度，是不是也完成了多行截断呢？为了便于设置高度，可以添加一个行高
+                        line-height，如果需要设置成3行，那高度就设置成line-height * 3
+                    </span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="demo-1" id="demo-2">
+                    <span id="demo-1-1">
+                        其实上面的努力已经实现了右下角环绕的效果，如果在知道行数的情况下设置一个最大高度，是不是也完成了多行截断呢？为了便于设置高度，可以添加一个行高
+                        line-height，如果需要设置成3行，那高度就设置成line-height * 3
+                    </span>
+                    其实上面的努力已经实现了右下角环绕的效果，如果在知道行数的情况下设置一个最大高度，是不是也完成了多行截断呢？为了便于设置高度，可以添加一个行高
+                    line-height，如果需要设置成3行，那高度就设置成line-height * 3
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

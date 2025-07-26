@@ -1,0 +1,46 @@
+{
+    "name": "simple-text-ellipsis",
+    "version": "0.0.2",
+    "description": "A simple custom scrollbar plugin",
+    "author": "wuzhanggui",
+    "license": "MIT",
+    "type": "module",
+    "keywords": [
+        "ellipsis"
+    ],
+    "homepage": "https://wurencaideli.github.io/simple-text-ellipsis/demo.html",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wurencaideli/simple-text-ellipsis"
+    },
+    "bugs": {
+        "url": "https://github.com/wurencaideli/simple-text-ellipsis/issues"
+    },
+    "jspm": {
+        "main": "dist/simple-text-ellipsis.cjs.js",
+        "registry": "jspm"
+    },
+    "main": "dist/simple-text-ellipsis.cjs.js",
+    "module": "dist/simple-text-ellipsis.esm.js",
+    "style": "dist/simple-text-ellipsis.css",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "scripts": {
+        "dev": "rollup -c -w",
+        "build": "rollup -c",
+        "build-sass": "node ./build-sass.js"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^28.0.6",
+        "@rollup/plugin-node-resolve": "^16.0.1",
+        "@rollup/plugin-terser": "^0.4.4",
+        "autoprefixer": "^10.4.21",
+        "clean-css": "^5.3.3",
+        "postcss": "^8.5.6",
+        "postcss-preset-env": "^10.2.3",
+        "rollup": "^3.29.5",
+        "sass": "^1.89.2"
+    }
+}

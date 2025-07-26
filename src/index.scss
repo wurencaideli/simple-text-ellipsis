@@ -1,0 +1,51 @@
+.simple-text-ellipsis-more {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--max-lines);
+    -webkit-box-orient: vertical;
+    display: -moz-box; /* 旧 Firefox 私有（已废弃）可省略 */
+    line-clamp: var(--max-lines); /* 标准属性 */
+    box-orient: vertical;
+    overflow: hidden;
+}
+.simple-text-ellipsis-one {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.is-ellipsis {
+    > .simple-text-ellipsis-expand {
+        display: initial;
+    }
+    > .simple-text-ellipsis-placeholder {
+        display: initial;
+    }
+}
+.is-exceeded-max-line {
+    > .simple-text-ellipsis-collapse {
+        display: flex;
+    }
+}
+.simple-text-ellipsis-expand {
+    display: none;
+    float: right;
+    clear: both;
+    cursor: pointer;
+    color: #1178d9;
+    position: relative;
+    z-index: 2;
+}
+.simple-text-ellipsis-collapse {
+    display: none;
+    flex-direction: row;
+    justify-content: flex-end;
+    cursor: pointer;
+    color: #1178d9;
+    position: relative;
+    z-index: 2;
+}
+.simple-text-ellipsis-placeholder {
+    display: none;
+    float: right;
+    width: 0;
+    pointer-events: none;
+}
