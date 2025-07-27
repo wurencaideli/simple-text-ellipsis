@@ -12,7 +12,7 @@ function resolvePath(path_) {
     return path.join(__dirname, path_);
 }
 const inputScss = resolvePath('./src/index.scss');
-const outputCss = resolvePath('./dist/simple-text-ellipsis.css');
+const outputCss = resolvePath('./dist/smart-text-ellipsis.css');
 /** 设置插件 */
 const processor = Postcss([
     postcssPresetEnv({
