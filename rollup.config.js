@@ -12,10 +12,10 @@ function resolvePath(path_) {
     return path.join(__dirname, path_);
 }
 
-const name = 'simple-text-ellipsis';
+const name = 'smart-text-ellipsis';
 const version = packageJson.version;
 const banner = `/*!
- * simple-text-ellipsis v${version}
+ * smart-text-ellipsis v${version}
  * Copyright ${new Date().getFullYear()} wuzhanggui https://github.com/wurencaideli
  * Licensed under MIT
  */

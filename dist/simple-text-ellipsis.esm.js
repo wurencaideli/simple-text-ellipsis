@@ -1,7 +1,116 @@
 /*!
- * simple-text-ellipsis v0.0.2
+ * smart-text-ellipsis v0.0.2
  * Copyright 2025 wuzhanggui https://github.com/wurencaideli
  * Licensed under MIT
  */
-function e(e){e&&e.parentNode&&e.parentNode.removeChild(e)}function t(e,t){e.classList.add(t)}function s(e,t){e.classList.remove(t)}class i{isDestroyed=!1;maxLines=0;targetEl=void 0;expandEl=void 0;collapseEl=void 0;placeholderEl=void 0;isOpen=!1;#e=0;constructor(e={}){const s=e.targetEl,i=e.isOpen,l=e.maxLines,n=document.createElement("span"),p=document.createElement("div"),h=document.createElement("div");n.innerText=e.expandElText||"Expand",p.innerText=e.collapseElText||"Collapse",n.onclick=()=>{this.#t()},p.onclick=()=>{this.#s()},t(p,"simple-text-ellipsis-collapse"),t(n,"simple-text-ellipsis-expand"),t(h,"simple-text-ellipsis-placeholder"),s.prepend(n),s.prepend(h),s.appendChild(p),this.targetEl=s,this.isOpen=i,this.maxLines=l,this.expandEl=n,this.collapseEl=p,this.placeholderEl=h,this.update()}destroy(){this.isOpen=!0,e(this.expandEl),e(this.collapseEl),this.#i(),this.targetEl=void 0,this.expandEl=void 0,this.collapseEl=void 0,this.isDestroyed=!0}update(){this.isDestroyed||(this.#e=this.#l(),this.#i(),this.#n(),this.#p())}#t(){this.isDestroyed||(this.isOpen=!0,this.update())}#s(){this.isDestroyed||(this.isOpen=!1,this.update())}#i(){const e=this.targetEl;e&&(this.isDestroyed?e.style.setProperty("--max-lines",void 0):e.style.setProperty("--max-lines",`${this.maxLines}`),1==this.maxLines?(t(e,"simple-text-ellipsis-one"),s(e,"simple-text-ellipsis-more")):(t(e,"simple-text-ellipsis-more"),s(e,"simple-text-ellipsis-one")),this.isOpen&&(s(e,"simple-text-ellipsis-more"),s(e,"simple-text-ellipsis-one")),s(e,"is-ellipsis"),s(e,"is-exceeded-max-line"))}#p(){if(this.isDestroyed)return;const e=this.targetEl;e&&(this.isOpen?this.#h()>this.maxLines&&t(e,"is-exceeded-max-line"):this.#a()&&t(e,"is-ellipsis"))}#n(){const e=this.#e,t=this.placeholderEl,s=this.targetEl;t.style.height=s.clientHeight-e+"px"}#l(){const e=this.targetEl;if(e)return parseFloat(getComputedStyle(e).lineHeight)||24}#a(){const e=this.maxLines,t=this.targetEl;return 1===e?t.scrollWidth>t.clientWidth:t.scrollHeight>t.clientHeight}#h(){const e=this.targetEl,t=this.collapseEl,s=this.#e;return Math.floor((e.clientHeight-t.clientHeight)/s)}}export{i as SimpleTextEllipsis};
-//# sourceMappingURL=simple-text-ellipsis.esm.js.map
+function e(e) {
+    e && e.parentNode && e.parentNode.removeChild(e);
+}
+function t(e, t) {
+    e.classList.add(t);
+}
+function s(e, t) {
+    e.classList.remove(t);
+}
+class i {
+    isDestroyed = !1;
+    maxLines = 0;
+    targetEl = void 0;
+    expandEl = void 0;
+    collapseEl = void 0;
+    placeholderEl = void 0;
+    isOpen = !1;
+    #e = 0;
+    constructor(e = {}) {
+        const s = e.targetEl,
+            i = e.isOpen,
+            l = e.maxLines,
+            n = document.createElement('span'),
+            p = document.createElement('div'),
+            h = document.createElement('div');
+        (n.innerText = e.expandElText || 'Expand'),
+            (p.innerText = e.collapseElText || 'Collapse'),
+            (n.onclick = () => {
+                this.#t();
+            }),
+            (p.onclick = () => {
+                this.#s();
+            }),
+            t(p, 'smart-text-ellipsis-collapse'),
+            t(n, 'smart-text-ellipsis-expand'),
+            t(h, 'smart-text-ellipsis-placeholder'),
+            s.prepend(n),
+            s.prepend(h),
+            s.appendChild(p),
+            (this.targetEl = s),
+            (this.isOpen = i),
+            (this.maxLines = l),
+            (this.expandEl = n),
+            (this.collapseEl = p),
+            (this.placeholderEl = h),
+            this.update();
+    }
+    destroy() {
+        (this.isOpen = !0),
+            e(this.expandEl),
+            e(this.collapseEl),
+            this.#i(),
+            (this.targetEl = void 0),
+            (this.expandEl = void 0),
+            (this.collapseEl = void 0),
+            (this.isDestroyed = !0);
+    }
+    update() {
+        this.isDestroyed || ((this.#e = this.#l()), this.#i(), this.#n(), this.#p());
+    }
+    #t() {
+        this.isDestroyed || ((this.isOpen = !0), this.update());
+    }
+    #s() {
+        this.isDestroyed || ((this.isOpen = !1), this.update());
+    }
+    #i() {
+        const e = this.targetEl;
+        e &&
+            (this.isDestroyed
+                ? e.style.setProperty('--max-lines', void 0)
+                : e.style.setProperty('--max-lines', `${this.maxLines}`),
+            1 == this.maxLines
+                ? (t(e, 'smart-text-ellipsis-one'), s(e, 'smart-text-ellipsis-more'))
+                : (t(e, 'smart-text-ellipsis-more'), s(e, 'smart-text-ellipsis-one')),
+            this.isOpen && (s(e, 'smart-text-ellipsis-more'), s(e, 'smart-text-ellipsis-one')),
+            s(e, 'is-ellipsis'),
+            s(e, 'is-exceeded-max-line'));
+    }
+    #p() {
+        if (this.isDestroyed) return;
+        const e = this.targetEl;
+        e &&
+            (this.isOpen
+                ? this.#h() > this.maxLines && t(e, 'is-exceeded-max-line')
+                : this.#a() && t(e, 'is-ellipsis'));
+    }
+    #n() {
+        const e = this.#e,
+            t = this.placeholderEl,
+            s = this.targetEl;
+        t.style.height = s.clientHeight - e + 'px';
+    }
+    #l() {
+        const e = this.targetEl;
+        if (e) return parseFloat(getComputedStyle(e).lineHeight) || 24;
+    }
+    #a() {
+        const e = this.maxLines,
+            t = this.targetEl;
+        return 1 === e ? t.scrollWidth > t.clientWidth : t.scrollHeight > t.clientHeight;
+    }
+    #h() {
+        const e = this.targetEl,
+            t = this.collapseEl,
+            s = this.#e;
+        return Math.floor((e.clientHeight - t.clientHeight) / s);
+    }
+}
+export { i as SmartTextEllipsis };
+//# sourceMappingURL=smart-text-ellipsis.esm.js.map

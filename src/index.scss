@@ -1,4 +1,4 @@
-.simple-text-ellipsis-more {
+.smart-text-ellipsis-more {
     display: -webkit-box;
     -webkit-line-clamp: var(--max-lines);
     -webkit-box-orient: vertical;
@@ -7,25 +7,25 @@
     box-orient: vertical;
     overflow: hidden;
 }
-.simple-text-ellipsis-one {
+.smart-text-ellipsis-one {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .is-ellipsis {
-    > .simple-text-ellipsis-expand {
+    > .smart-text-ellipsis-expand {
         display: initial;
     }
-    > .simple-text-ellipsis-placeholder {
+    > .smart-text-ellipsis-placeholder {
         display: initial;
     }
 }
 .is-exceeded-max-line {
-    > .simple-text-ellipsis-collapse {
+    > .smart-text-ellipsis-collapse {
         display: flex;
     }
 }
-.simple-text-ellipsis-expand {
+.smart-text-ellipsis-expand {
     display: none;
     float: right;
     clear: both;
@@ -34,7 +34,7 @@
     position: relative;
     z-index: 2;
 }
-.simple-text-ellipsis-collapse {
+.smart-text-ellipsis-collapse {
     display: none;
     flex-direction: row;
     justify-content: flex-end;
@@ -43,7 +43,7 @@
     position: relative;
     z-index: 2;
 }
-.simple-text-ellipsis-placeholder {
+.smart-text-ellipsis-placeholder {
     display: none;
     float: right;
     width: 0;

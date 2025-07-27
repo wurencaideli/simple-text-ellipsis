@@ -1,5 +1,5 @@
 {
-    "name": "simple-text-ellipsis",
+    "name": "smart-text-ellipsis",
     "version": "0.0.2",
     "description": "A simple custom scrollbar plugin",
     "author": "wuzhanggui",
@@ -8,21 +8,21 @@
     "keywords": [
         "ellipsis"
     ],
-    "homepage": "https://wurencaideli.github.io/simple-text-ellipsis/demo.html",
+    "homepage": "https://wurencaideli.github.io/smart-text-ellipsis/demo.html",
     "repository": {
         "type": "git",
-        "url": "https://github.com/wurencaideli/simple-text-ellipsis"
+        "url": "https://github.com/wurencaideli/smart-text-ellipsis"
     },
     "bugs": {
-        "url": "https://github.com/wurencaideli/simple-text-ellipsis/issues"
+        "url": "https://github.com/wurencaideli/smart-text-ellipsis/issues"
     },
     "jspm": {
-        "main": "dist/simple-text-ellipsis.cjs.js",
+        "main": "dist/smart-text-ellipsis.cjs.js",
         "registry": "jspm"
     },
-    "main": "dist/simple-text-ellipsis.cjs.js",
-    "module": "dist/simple-text-ellipsis.esm.js",
-    "style": "dist/simple-text-ellipsis.css",
+    "main": "dist/smart-text-ellipsis.cjs.js",
+    "module": "dist/smart-text-ellipsis.esm.js",
+    "style": "dist/smart-text-ellipsis.css",
     "files": [
         "dist",
         "src"

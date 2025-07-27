@@ -1,11 +1,11 @@
 ## Introduction
 
-[DEMO](https://wurencaideli.github.io/simple-text-ellipsis/demo.html)
+[DEMO](https://wurencaideli.github.io/smart-text-ellipsis/demo.html)
 
 #### install
 
 ```javascript
-npm install simple-text-ellipsis
+npm install smart-text-ellipsis
 ```
 
 #### How to use

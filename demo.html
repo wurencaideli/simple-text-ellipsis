@@ -1,24 +1,24 @@
 <!DOCTYPE >
 <html>
     <head>
-        <title>simple-text-ellipsis demo</title>
+        <title>smart-text-ellipsis demo</title>
         <meta
             name="viewport"
             content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"
         />
-        <link rel="stylesheet" href="./dist/simple-text-ellipsis.css" />
-        <script src="./dist/simple-text-ellipsis.umd.js"></script>
+        <link rel="stylesheet" href="./dist/smart-text-ellipsis.css" />
+        <script src="./dist/smart-text-ellipsis.umd.js"></script>
         <style>
             body {
                 font-size: 12px;
                 margin: 0;
                 padding: 0;
             }
-            .simple-text-ellipsis-demo {
+            .smart-text-ellipsis-demo {
                 padding: 20px;
                 box-sizing: border-box;
             }
-            .simple-text-ellipsis-demo > .container {
+            .smart-text-ellipsis-demo > .container {
                 height: auto;
                 width: fit-content;
                 padding: 8px;
@@ -29,7 +29,7 @@
                 box-shadow: 2px 2px 4px #000;
                 margin-top: 20px;
             }
-            .simple-text-ellipsis-demo > .container > .demo-1 {
+            .smart-text-ellipsis-demo > .container > .demo-1 {
                 font-size: 12px;
                 line-height: 22px;
                 word-break: break-all;
@@ -37,10 +37,10 @@
         </style>
         <script>
             window.addEventListener('DOMContentLoaded', function () {
-                const { SimpleTextEllipsis } = window['simple-text-ellipsis'];
+                const { SmartTextEllipsis } = window['smart-text-ellipsis'];
                 const ddInstanceList = [];
                 const el = document.getElementById('demo-1');
-                const ddInstance = new SimpleTextEllipsis({
+                const ddInstance = new SmartTextEllipsis({
                     targetEl: el,
                     isOpen: false,
                     maxLines: 2,
@@ -63,10 +63,10 @@
                 updateDdInstance();
             });
             window.addEventListener('DOMContentLoaded', function () {
-                const { SimpleTextEllipsis } = window['simple-text-ellipsis'];
+                const { SmartTextEllipsis } = window['smart-text-ellipsis'];
                 const ddInstanceList = [];
                 const el = document.getElementById('demo-2');
-                const ddInstance = new SimpleTextEllipsis({
+                const ddInstance = new SmartTextEllipsis({
                     targetEl: el,
                     isOpen: true,
                     maxLines: 1,
@@ -100,9 +100,9 @@
     </head>
 
     <body>
-        <div class="simple-text-ellipsis-demo">
+        <div class="smart-text-ellipsis-demo">
             <a
-                href="https://github.com/wurencaideli/simple-text-ellipsis"
+                href="https://github.com/wurencaideli/smart-text-ellipsis"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Github</a

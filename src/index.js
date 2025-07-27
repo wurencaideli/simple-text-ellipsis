@@ -1,5 +1,5 @@
 import { addElementClass, removeElement, removeElementClass } from './common';
-export class SimpleTextEllipsis {
+export class SmartTextEllipsis {
     isDestroyed = false;
     maxLines = 0;
     targetEl = undefined;
@@ -23,9 +23,9 @@ export class SimpleTextEllipsis {
         collapseEl.onclick = () => {
             this.#handleCollapse();
         };
-        addElementClass(collapseEl, 'simple-text-ellipsis-collapse');
-        addElementClass(expandEl, 'simple-text-ellipsis-expand');
-        addElementClass(placeholderEl, 'simple-text-ellipsis-placeholder');
+        addElementClass(collapseEl, 'smart-text-ellipsis-collapse');
+        addElementClass(expandEl, 'smart-text-ellipsis-expand');
+        addElementClass(placeholderEl, 'smart-text-ellipsis-placeholder');
         targetEl.prepend(expandEl);
         targetEl.prepend(placeholderEl);
         targetEl.appendChild(collapseEl);
@@ -76,15 +76,15 @@ export class SimpleTextEllipsis {
             targetEl.style.setProperty('--max-lines', undefined);
         }
         if (this.maxLines == 1) {
-            addElementClass(targetEl, 'simple-text-ellipsis-one');
-            removeElementClass(targetEl, 'simple-text-ellipsis-more');
+            addElementClass(targetEl, 'smart-text-ellipsis-one');
+            removeElementClass(targetEl, 'smart-text-ellipsis-more');
         } else {
-            addElementClass(targetEl, 'simple-text-ellipsis-more');
-            removeElementClass(targetEl, 'simple-text-ellipsis-one');
+            addElementClass(targetEl, 'smart-text-ellipsis-more');
+            removeElementClass(targetEl, 'smart-text-ellipsis-one');
         }
         if (this.isOpen) {
-            removeElementClass(targetEl, 'simple-text-ellipsis-more');
-            removeElementClass(targetEl, 'simple-text-ellipsis-one');
+            removeElementClass(targetEl, 'smart-text-ellipsis-more');
+            removeElementClass(targetEl, 'smart-text-ellipsis-one');
         }
         removeElementClass(targetEl, 'is-ellipsis');
         removeElementClass(targetEl, 'is-exceeded-max-line');
