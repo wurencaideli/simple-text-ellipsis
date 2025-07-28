@@ -1,7 +1,7 @@
 {
     "name": "smart-text-ellipsis",
-    "version": "0.0.2",
-    "description": "A simple custom scrollbar plugin",
+    "version": "0.0.3",
+    "description": "Hide and display long text.",
     "author": "wuzhanggui",
     "license": "MIT",
     "type": "module",

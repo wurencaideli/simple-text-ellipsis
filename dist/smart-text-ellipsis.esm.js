@@ -1,5 +1,5 @@
 /*!
- * smart-text-ellipsis v0.0.2
+ * smart-text-ellipsis v0.0.3
  * Copyright 2025 wuzhanggui https://github.com/wurencaideli
  * Licensed under MIT
  */
