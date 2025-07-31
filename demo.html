@@ -29,10 +29,19 @@
                 box-shadow: 2px 2px 4px #000;
                 margin-top: 20px;
             }
+            .bt {
+                margin-top: 20px;
+            }
             .smart-text-ellipsis-demo > .container > .demo-1 {
                 font-size: 12px;
                 line-height: 22px;
                 word-break: break-all;
+            }
+            .link-span {
+                color: rgb(0, 119, 255);
+            }
+            .link-span-1 {
+                color: #ff3d00;
             }
         </style>
         <script>
@@ -40,13 +49,29 @@
                 const { SmartTextEllipsis } = window['smart-text-ellipsis'];
                 const ddInstanceList = [];
                 const el = document.getElementById('demo-1');
+                const bt = document.getElementById('bt');
                 const ddInstance = new SmartTextEllipsis({
                     targetEl: el,
                     isOpen: false,
                     maxLines: 2,
-                    expandElText: '展开',
+                    stopClickPropagation: true,
+                    expandElText: '更多',
                     collapseElText: '收起',
+                    afterExpand() {
+                        console.log('Expanded');
+                    },
+                    afterCollapse() {
+                        console.log('Collapsed');
+                    },
                 });
+                // 手动切换
+                bt.onclick = () => {
+                    if (ddInstance.isOpen) {
+                        ddInstance.collapse();
+                    } else {
+                        ddInstance.expand();
+                    }
+                };
                 ddInstanceList.push(ddInstance);
                 window.ddInstance = ddInstance;
                 /**
@@ -88,7 +113,9 @@
                     setTimeout(() => {
                         ddInstanceList.forEach((item) => {
                             const contentEl = item.targetEl.querySelector('#demo-1-1');
-                            contentEl.innerText = contentEl.innerText + new Date().getTime();
+                            contentEl.innerText =
+                                contentEl.innerText +
+                                '当大量文字大有限的区域中显示时，可省略部分文字。';
                             item.update();
                         });
                         updateDdInstance();
@@ -107,26 +134,34 @@
                 rel="noopener noreferrer"
                 >Github</a
             >
-            <p>支持手动修改内容，修改最大行数，自适应的宽度</p>
+            <p>
+                支持手动修改内容，修改最大行数，自适应的宽度，不要给文本容器设置padding或者margin，可以包装一层。
+            </p>
             <p>
                 此方案：采用css设置文本省略，采用js判断文本是否省略（以此设置展开按钮），判断文本行数是否超出限制（以此设置收缩按钮），js计算需要获取行高，请用css设置line-height属性。
             </p>
             <div class="container" style="width: 300px">
                 <div class="demo-1" id="demo-1">
                     <span id="demo-1-1">
-                        其实上面的努力已经实现了右下角环绕的效果，如果在知道行数的情况下设置一个最大高度，是不是也完成了多行截断呢？为了便于设置高度，可以添加一个行高
-                        line-height，如果需要设置成3行，那高度就设置成line-height * 3
+                        正常文本
+                        <span class="link-span">其他标签其他标签其他标签其他标签</span>
+                        正常文本
+                        <span class="link-span-1">其他标签其他标签其他标签其他标签</span>
+                        当大量文字大有限的区域中显示时，可省略部分文字。
+                        当大量文字大有限的区域中显示时，可省略部分文字。
+                        <a href="https://www.npmjs.com/package/smart-text-ellipsis">npm</a>
+                        当大量文字大有限的区域中显示时，可省略部分文字。
+                        <span class="link-span-1">其他标签其他标签其他标签其他标签</span>
+                        当大量文字大有限的区域中显示时，可省略部分文字。
+                        当大量文字大有限的区域中显示时，可省略部分文字。
                     </span>
                 </div>
             </div>
+            <button id="bt" class="bt">手动切换</button>
             <div class="container">
                 <div class="demo-1" id="demo-2">
-                    <span id="demo-1-1">
-                        其实上面的努力已经实现了右下角环绕的效果，如果在知道行数的情况下设置一个最大高度，是不是也完成了多行截断呢？为了便于设置高度，可以添加一个行高
-                        line-height，如果需要设置成3行，那高度就设置成line-height * 3
-                    </span>
-                    其实上面的努力已经实现了右下角环绕的效果，如果在知道行数的情况下设置一个最大高度，是不是也完成了多行截断呢？为了便于设置高度，可以添加一个行高
-                    line-height，如果需要设置成3行，那高度就设置成line-height * 3
+                    <span id="demo-1-1"> 当大量文字大有限的区域中显示时，可省略部分文字。 </span>
+                    当大量文字大有限的区域中显示时，可省略部分文字。
                 </div>
             </div>
         </div>

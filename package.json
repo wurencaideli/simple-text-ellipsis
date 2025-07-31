@@ -1,6 +1,6 @@
 {
     "name": "smart-text-ellipsis",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Hide and display long text.",
     "author": "wuzhanggui",
     "license": "MIT",
@@ -36,11 +36,14 @@
         "@rollup/plugin-commonjs": "^28.0.6",
         "@rollup/plugin-node-resolve": "^16.0.1",
         "@rollup/plugin-terser": "^0.4.4",
+        "@rollup/plugin-typescript": "^12.1.4",
         "autoprefixer": "^10.4.21",
         "clean-css": "^5.3.3",
         "postcss": "^8.5.6",
         "postcss-preset-env": "^10.2.3",
         "rollup": "^3.29.5",
-        "sass": "^1.89.2"
+        "sass": "^1.89.2",
+        "tslib": "^2.8.1",
+        "typescript": "^5.8.3"
     }
 }

@@ -2,6 +2,8 @@
 
 Hide and display long text.
 
+When you have a long text, displaying it directly may not be a good idea. You need an expand and collapse function.
+
 [DEMO](https://wurencaideli.github.io/smart-text-ellipsis/demo.html)
 
 #### install
@@ -22,8 +24,15 @@ const ddInstance = new SmartTextEllipsis({
     targetEl: el,
     isOpen: false,
     maxLines: 2,
-    expandElText: '展开',
-    collapseElText: '收起',
+    stopClickPropagation: true,
+    expandElText: 'Expand',
+    collapseElText: 'Collapse',
+    afterExpand() {
+        console.log('Expanded');
+    },
+    afterCollapse() {
+        console.log('Collapsed');
+    },
 });
 ddInstanceList.push(ddInstance);
 window.ddInstance = ddInstance;

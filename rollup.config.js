@@ -1,3 +1,4 @@
+import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
@@ -22,15 +23,8 @@ const banner = `/*!
 `;
 
 export default {
-    input: resolvePath('./src/index.js'),
+    input: resolvePath('./src/smart-text-ellipsis.ts'),
     output: [
-        {
-            file: resolvePath(`./dist/${name}.umd.js`),
-            format: 'umd',
-            name: name,
-            sourcemap: true,
-            banner,
-        },
         {
             file: resolvePath(`./dist/${name}.esm.js`),
             format: 'esm',
@@ -43,6 +37,18 @@ export default {
             sourcemap: true,
             banner,
         },
+        {
+            file: resolvePath(`./dist/${name}.umd.js`),
+            format: 'umd',
+            name: name,
+            sourcemap: true,
+            banner,
+        },
     ],
-    plugins: [resolve(), commonjs(), terser()],
+    plugins: [
+        resolve(),
+        commonjs(),
+        typescript({ tsconfig: './tsconfig.json', declaration: true }),
+        terser(),
+    ],
 };
